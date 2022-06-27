@@ -5,9 +5,9 @@
 #################################################################################
 
 PROJECT_DIR := $(shell dirname $(realpath $(lastword $(MAKEFILE_LIST))))
-BUCKET = handwriting-recognition-bless
+BUCKET = handwritten-digit-recognition-bless
 PROFILE = default
-PROJECT_NAME = handwriting-recognition
+PROJECT_NAME = handwritten-digit-recognition
 PYTHON_INTERPRETER = python3
 
 ifeq (,$(shell which conda))

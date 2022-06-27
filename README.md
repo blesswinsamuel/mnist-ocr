@@ -1,4 +1,4 @@
-handwriting-recognition
+handwritten-digit-recognition
 ==============================
 
 Recognize handwritten digits
