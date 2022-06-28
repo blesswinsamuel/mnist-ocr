@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 #
-# handwritten-digit-recognition documentation build configuration file, created by
+# mnist-ocr documentation build configuration file, created by
 # sphinx-quickstart.
 #
 # This file is execfile()d with the current directory set to its containing dir.
@@ -41,7 +41,7 @@ source_suffix = ".rst"
 master_doc = "index"
 
 # General information about the project.
-project = "handwritten-digit-recognition"
+project = "mnist-ocr"
 
 # The version info for the project you're documenting, acts as replacement for
 # |version| and |release|, also used in various other places throughout the
@@ -164,7 +164,7 @@ html_static_path = ["_static"]
 # html_file_suffix = None
 
 # Output file base name for HTML help builder.
-htmlhelp_basename = "handwritten-digit-recognitiondoc"
+htmlhelp_basename = "mnist-ocrdoc"
 
 
 # -- Options for LaTeX output --------------------------------------------------
@@ -183,8 +183,8 @@ latex_elements = {
 latex_documents = [
     (
         "index",
-        "handwritten-digit-recognition.tex",
-        "handwritten-digit-recognition Documentation",
+        "mnist-ocr.tex",
+        "mnist-ocr Documentation",
         "Blesswin Samuel",
         "manual",
     ),
@@ -218,8 +218,8 @@ latex_documents = [
 man_pages = [
     (
         "index",
-        "handwritten-digit-recognition",
-        "handwritten-digit-recognition Documentation",
+        "mnist-ocr",
+        "mnist-ocr Documentation",
         ["Blesswin Samuel"],
         1,
     )
@@ -237,10 +237,10 @@ man_pages = [
 texinfo_documents = [
     (
         "index",
-        "handwritten-digit-recognition",
-        "handwritten-digit-recognition Documentation",
+        "mnist-ocr",
+        "mnist-ocr Documentation",
         "Blesswin Samuel",
-        "handwritten-digit-recognition",
+        "mnist-ocr",
         "Recognize handwritten digits",
         "Miscellaneous",
     ),

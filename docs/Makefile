@@ -77,17 +77,17 @@ qthelp:
 	@echo
 	@echo "Build finished; now you can run "qcollectiongenerator" with the" \
 	      ".qhcp project file in $(BUILDDIR)/qthelp, like this:"
-	@echo "# qcollectiongenerator $(BUILDDIR)/qthelp/handwritten-digit-recognition.qhcp"
+	@echo "# qcollectiongenerator $(BUILDDIR)/qthelp/mnist-ocr.qhcp"
 	@echo "To view the help file:"
-	@echo "# assistant -collectionFile $(BUILDDIR)/qthelp/handwritten-digit-recognition.qhc"
+	@echo "# assistant -collectionFile $(BUILDDIR)/qthelp/mnist-ocr.qhc"
 
 devhelp:
 	$(SPHINXBUILD) -b devhelp $(ALLSPHINXOPTS) $(BUILDDIR)/devhelp
 	@echo
 	@echo "Build finished."
 	@echo "To view the help file:"
-	@echo "# mkdir -p $$HOME/.local/share/devhelp/handwritten-digit-recognition"
-	@echo "# ln -s $(BUILDDIR)/devhelp $$HOME/.local/share/devhelp/handwritten-digit-recognition"
+	@echo "# mkdir -p $$HOME/.local/share/devhelp/mnist-ocr"
+	@echo "# ln -s $(BUILDDIR)/devhelp $$HOME/.local/share/devhelp/mnist-ocr"
 	@echo "# devhelp"
 
 epub:

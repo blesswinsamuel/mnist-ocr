@@ -5,9 +5,9 @@
 #################################################################################
 
 PROJECT_DIR := $(shell dirname $(realpath $(lastword $(MAKEFILE_LIST))))
-BUCKET = handwritten-digit-recognition-bless
+BUCKET = mnist-ocr
 PROFILE = default
-PROJECT_NAME = handwritten-digit-recognition
+PROJECT_NAME = mnist-ocr
 PYTHON_INTERPRETER = python3
 
 ifeq (,$(shell which conda))

@@ -1,4 +1,4 @@
-handwritten-digit-recognition
+mnist-ocr
 ==============================
 
 Recognize handwritten digits
