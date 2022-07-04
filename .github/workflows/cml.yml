@@ -20,12 +20,18 @@ jobs:
 
       - uses: iterative/setup-cml@v1
 
-      - name: Train model
+      - name: Install dependencies
         run: |
           poetry install
+      
+      - name: Configure Azure and pull data
+        run: |
           poetry run dvc remote modify --local azure account_name mnistocr
           poetry run dvc remote modify --local azure account_key ${{ secrets.AZURE_ACCOUNT_KEY }}
           poetry run dvc pull
+      
+      - name: Run pipeline to train model
+        run: |
           poetry run dvc repro
       
       - name: Write CML report
