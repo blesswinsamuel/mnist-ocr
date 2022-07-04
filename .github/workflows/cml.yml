@@ -22,6 +22,9 @@ jobs:
       - name: Train model
         run: |
           poetry install
+          poetry run dvc remote modify --local azure account_name mnistocr
+          poetry run dvc remote modify --local azure account_key ${{ secrets.AZURE_ACCOUNT_KEY }}
+          poetry run dvc pull
           poetry run dvc repro
       
       - name: Write CML report
