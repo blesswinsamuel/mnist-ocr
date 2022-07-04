@@ -5,7 +5,7 @@ description = ""
 authors = ["Blesswin Samuel <blesswinsamuel@gmail.com>"]
 
 [tool.poetry.dependencies]
-python = "3.10"
+python = ">=3.10,<3.11"
 tensorflow = "^2.9.1"
 idx2numpy = "^1.2.3"
 click = "^8.1.3"
