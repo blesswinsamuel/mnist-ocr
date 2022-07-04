@@ -1,0 +1,39 @@
+stages:
+  prepare_data:
+    cmd: python src/data/make_dataset.py data/external data/processed
+    deps:
+      - data/external
+      - src/data/make_dataset.py
+    params:
+      - prepare_data.seed
+      - prepare_data.val_split
+    outs:
+      - data/processed
+  train:
+    cmd: python src/models/train_model.py data/processed models/model.h5 reports/train
+    deps:
+      - data/processed
+      - src/models/train_model.py
+    params:
+      - train.seed
+      - train.batch_size
+      - train.epochs
+    outs:
+      - models/model.h5
+  evaluate:
+    cmd: python src/models/evaluate_model.py data/processed models/model.h5 reports/evaluate
+    deps:
+      - data/processed
+      - models/model.h5
+      - src/models/evaluate_model.py
+    metrics:
+      - reports/evaluate.json:
+          cache: false
+    # plots:
+    #   - reports/evaluate/importance.png
+    #   - reports/evaluate/plots/confusion_matrix.json:
+    #       cache: false
+    #   - reports/evaluate/plots/precision_recall.json:
+    #       cache: false
+    #   - reports/evaluate/plots/roc.json:
+    #       cache: false

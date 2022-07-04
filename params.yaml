@@ -1,0 +1,10 @@
+prepare_data:
+  val_split: 0.20
+  seed: 20220705
+
+train:
+  seed: 20220705
+  batch_size: 128
+  epochs: 6
+
+evaluate:

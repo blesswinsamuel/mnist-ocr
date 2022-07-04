@@ -1,0 +1,57 @@
+schema: '2.0'
+stages:
+  prepare_data:
+    cmd: python src/data/make_dataset.py data/external data/processed
+    deps:
+    - path: data/external
+      md5: b6c29e96813679dd8c451c9b5ca86e2c.dir
+      size: 11594722
+      nfiles: 4
+    - path: src/data/make_dataset.py
+      md5: 6ae59b919a6648ce23c55126c038d6f6
+      size: 2536
+    params:
+      params.yaml:
+        prepare_data.seed: 20220705
+        prepare_data.val_split: 0.2
+    outs:
+    - path: data/processed
+      md5: 6f04d5a4db822ad3744c2373b1775bcb.dir
+      size: 11515201
+      nfiles: 3
+  train:
+    cmd: python src/models/train_model.py data/processed models/model.h5 reports/train
+    deps:
+    - path: data/processed
+      md5: 6f04d5a4db822ad3744c2373b1775bcb.dir
+      size: 11515201
+      nfiles: 3
+    - path: src/models/train_model.py
+      md5: 32d0e1a1364561b6ff52c6a07cfe453a
+      size: 2134
+    params:
+      params.yaml:
+        train.batch_size: 128
+        train.epochs: 6
+        train.seed: 20220705
+    outs:
+    - path: models/model.h5
+      md5: 81ba069b3bf1993334146ab1308769f5
+      size: 1248360
+  evaluate:
+    cmd: python src/models/evaluate_model.py data/processed models/model.h5 reports/evaluate
+    deps:
+    - path: data/processed
+      md5: 6f04d5a4db822ad3744c2373b1775bcb.dir
+      size: 11515201
+      nfiles: 3
+    - path: models/model.h5
+      md5: 81ba069b3bf1993334146ab1308769f5
+      size: 1248360
+    - path: src/models/evaluate_model.py
+      md5: ac7c47ef70a9015bdc80b9677fe57ccb
+      size: 2306
+    outs:
+    - path: reports/evaluate.json
+      md5: 55ac93df2df20854ad5afad72c52ffe8
+      size: 99
