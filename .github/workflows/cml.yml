@@ -38,6 +38,18 @@ jobs:
         env:
           REPO_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          # Post reports as comments in GitHub PRs
-          cat results.txt >> report.md
-          cml send-comment report.md
+          # echo "# CML Report" > report.md
+          # echo "## Plots" >> report.md
+          # dvc plots diff $PREVIOUS_REF workspace --show-vega --targets evaluation/plots/precision_recall.json > vega.json
+          # vl2svg vega.json prc.svg
+          # cml publish prc.svg --title "Precision & Recall" --md >> report.md
+
+          # dvc plots diff $PREVIOUS_REF workspace --show-vega --targets evaluation/plots/confusion_matrix.json > vega.json
+          # vl2svg vega.json confusion.svg
+          # cml publish confusion.svg --title "Confusion Matrix" --md >> report.md
+
+          # echo "## Metrics and Params" >> report.md
+          # echo "### $PREVIOUS_REF → workspace" >> report.md
+          # dvc exp diff $PREVIOUS_REF --show-md >> report.md
+
+          # cml send-comment report.md
