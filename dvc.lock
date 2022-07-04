@@ -27,8 +27,8 @@ stages:
       size: 11515201
       nfiles: 3
     - path: src/models/train_model.py
-      md5: 32d0e1a1364561b6ff52c6a07cfe453a
-      size: 2134
+      md5: f8776e31d2b19c50bb3027e3f213af69
+      size: 2321
     params:
       params.yaml:
         train.batch_size: 128
@@ -49,9 +49,9 @@ stages:
       md5: 81ba069b3bf1993334146ab1308769f5
       size: 1248360
     - path: src/models/evaluate_model.py
-      md5: ac7c47ef70a9015bdc80b9677fe57ccb
-      size: 2306
+      md5: 88f6895dbdaa6641b01b44b4370e4305
+      size: 2381
     outs:
     - path: reports/evaluate.json
-      md5: 55ac93df2df20854ad5afad72c52ffe8
-      size: 99
+      md5: 2c5cd745c72ddd435fdf8bec298c5287
+      size: 289

@@ -15,6 +15,17 @@ def normalize_img(image, label):
 params = yaml.safe_load(open("params.yaml"))["train"]
 
 
+def reset_random_seeds(seed):
+    import os
+
+    os.environ["PYTHONHASHSEED"] = str(seed)
+    tf.random.set_seed(seed)
+    np.random.seed(seed)
+    import random
+
+    random.seed(seed)
+
+
 @click.command()
 @click.argument("data_filepath", type=click.Path(exists=True))
 @click.argument("model_filepath", type=click.Path())
@@ -24,7 +35,7 @@ def main(data_filepath, model_filepath, report_filepath):
     cleaned data ready to be trained (saved in data/processed).
     """
 
-    tf.random.set_seed(params["seed"])
+    reset_random_seeds(params["seed"])
 
     def load_data(filepath):
         data = np.load(filepath)
