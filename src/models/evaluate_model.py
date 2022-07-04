@@ -12,12 +12,11 @@ def normalize_img(image, label):
     return tf.cast(image, tf.float32) / 255.0, label
 
 
-def evaluate(model, data, result_filepath):
-    live = Live(result_filepath)
+def evaluate(live, model, data, key):
 
     loss, acc = model.evaluate(data["images"], data["labels"], verbose=2)
-    live.log("train/loss", float(loss))
-    live.log("train/accuracy", float(acc))
+    live.log(f"{key}/loss", float(loss))
+    live.log(f"{key}/accuracy", float(acc))
     # test_predictions = model.predict(data["images"])
 
     # live.log_plot("roc", data["labels"], test_predictions)
@@ -34,6 +33,7 @@ def main(data_filepath, model_filepath, result_filepath):
     """Runs data processing scripts to turn raw data from (data/external) into
     cleaned data ready to be trained (saved in data/processed).
     """
+    live = Live(result_filepath)
 
     model = tf.keras.models.load_model(model_filepath)
 
@@ -48,14 +48,16 @@ def main(data_filepath, model_filepath, result_filepath):
         # return ds
 
     data_filepath = Path(data_filepath)
-    # ds_train = load_data(data_filepath / "train.npz")
-    # ds_val = load_data(data_filepath / "val.npz")
+    ds_train = load_data(data_filepath / "train.npz")
+    ds_val = load_data(data_filepath / "val.npz")
     ds_test = load_data(data_filepath / "test.npz")
 
     # evaluate(model, ds_train, result_filepath / "train")
     result_filepath = Path(result_filepath)
     result_filepath.mkdir(exist_ok=True)
-    evaluate(model, ds_test, result_filepath)
+    evaluate(live, model, ds_train, "train")
+    evaluate(live, model, ds_val, "val")
+    evaluate(live, model, ds_test, "test")
 
 
 if __name__ == "__main__":
