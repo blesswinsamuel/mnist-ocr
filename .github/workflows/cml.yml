@@ -57,6 +57,6 @@ jobs:
 
           echo "## Metrics and Params" >> report.md
           echo "### $PREVIOUS_REF → workspace" >> report.md
-          dvc exp diff $PREVIOUS_REF --show-md >> report.md
+          poetry run dvc exp diff $PREVIOUS_REF --show-md >> report.md
 
           cml send-comment report.md
