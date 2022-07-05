@@ -24,5 +24,6 @@ sudo pip install poetry
 git clone git@github.com:blesswinsamuel/mnist-ocr.git
 cd mnist-ocr
 poetry install
-poetry run streamlit run src/visualization/visualize.py # in tmux
+# configure dvc remote credentials
+sudo -E poetry run streamlit run src/visualization/visualize.py --server.port 80 # in tmux
 ```
