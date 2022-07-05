@@ -5,12 +5,15 @@ description = ""
 authors = ["Blesswin Samuel <blesswinsamuel@gmail.com>"]
 
 [tool.poetry.dependencies]
-python = ">=3.10,<3.11"
+python = ">=3.8,<3.11"
 tensorflow = "^2.9.1"
 idx2numpy = "^1.2.3"
 click = "^8.1.3"
 sklearn = "^0.0"
 dvclive = "^0.9.0"
+streamlit = "^1.10.0"
+pandas = "^1.4.3"
+streamlit-drawable-canvas = "^0.9.1"
 
 [tool.poetry.dev-dependencies]
 dvc = {extras = ["azure"], version = "^2.11.0"}

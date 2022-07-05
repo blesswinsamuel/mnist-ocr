@@ -1,4 +1,6 @@
 [core]
-    remote = azure
+    remote = origin
 ['remote "azure"']
     url = azure://mnist-ocr/data
+['remote "origin"']
+    url = https://dagshub.com/blesswinsamuel/mnist-ocr.dvc

@@ -24,10 +24,17 @@ jobs:
         run: |
           poetry install
       
-      - name: Configure Azure and pull data
+      # - name: Configure Azure and pull data
+      #   run: |
+      #     poetry run dvc remote modify --local azure account_name mnistocr
+      #     poetry run dvc remote modify --local azure account_key ${{ secrets.AZURE_ACCOUNT_KEY }}
+      #     poetry run dvc pull
+      
+      - name: Configure DagsHub and pull data
         run: |
-          poetry run dvc remote modify --local azure account_name mnistocr
-          poetry run dvc remote modify --local azure account_key ${{ secrets.AZURE_ACCOUNT_KEY }}
+          poetry run dvc remote modify --local origin auth basic
+          poetry run dvc remote modify --local origin user ${{ secrets.DAGSHUB_USER }}
+          poetry run dvc remote modify --local origin password ${{ secrets.DAGSHUB_PASSWORD }}
           poetry run dvc pull
       
       - name: Run pipeline to train model
