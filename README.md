@@ -18,9 +18,11 @@ This project is to demonstrate the use of various tools:
 ## Manual deployment on Azure
 
 ```bash
+# add deploy key if repo is private
 sudo apt install python3-pip
 sudo pip install poetry
 git clone git@github.com:blesswinsamuel/mnist-ocr.git
+cd mnist-ocr
 poetry install
-poetry run streamlit run src/visualization/visualize.py
+poetry run streamlit run src/visualization/visualize.py # in tmux
 ```

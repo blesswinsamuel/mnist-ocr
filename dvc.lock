@@ -32,11 +32,11 @@ stages:
     params:
       params.yaml:
         train.batch_size: 128
-        train.epochs: 7
+        train.epochs: 8
         train.seed: 20220705
     outs:
     - path: models/model.h5
-      md5: bcfe1ffe1df1a92f10ffc25ddb635b44
+      md5: 36c16fa9a055b7333fa6451000913276
       size: 1248360
   evaluate:
     cmd: python src/models/evaluate_model.py data/processed models/model.h5 reports/evaluate
@@ -46,12 +46,12 @@ stages:
       size: 11515201
       nfiles: 3
     - path: models/model.h5
-      md5: bcfe1ffe1df1a92f10ffc25ddb635b44
+      md5: 36c16fa9a055b7333fa6451000913276
       size: 1248360
     - path: src/models/evaluate_model.py
       md5: 88f6895dbdaa6641b01b44b4370e4305
       size: 2381
     outs:
     - path: reports/evaluate.json
-      md5: cb29972dcdb145b6184bbf738634450c
-      size: 289
+      md5: b558401247975c1deddf2bd9cfb6251b
+      size: 288

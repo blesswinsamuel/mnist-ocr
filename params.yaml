@@ -5,6 +5,6 @@ prepare_data:
 train:
   seed: 20220705
   batch_size: 128
-  epochs: 7
+  epochs: 8
 
 evaluate:
