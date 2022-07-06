@@ -45,6 +45,13 @@ jobs:
         env:
           REPO_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
+          cml ci
+          if [ $GITHUB_REF = refs/heads/master ]; then
+            PREVIOUS_REF=HEAD~1
+          else
+            PREVIOUS_REF=master
+          fi
+
           echo "# CML Report" > report.md
           # echo "## Plots" >> report.md
           # dvc plots diff $PREVIOUS_REF workspace --show-vega --targets evaluation/plots/precision_recall.json > vega.json
