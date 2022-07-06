@@ -53,9 +53,15 @@ def main(data_filepath, model_filepath, report_filepath):
 
     model = tf.keras.models.Sequential(
         [
-            tf.keras.layers.Flatten(input_shape=(28, 28)),
+            # tf.keras.layers.Flatten(input_shape=(28, 28)),
+            # tf.keras.layers.Dense(128, activation="relu"),
+            # tf.keras.layers.Dense(10),
+            tf.keras.layers.Conv2D(32, (5, 5), input_shape=(28, 28, 1), activation="relu"),
+            tf.keras.layers.MaxPooling2D(pool_size=(2, 2)),
+            tf.keras.layers.Dropout(0.2),
+            tf.keras.layers.Flatten(),
             tf.keras.layers.Dense(128, activation="relu"),
-            tf.keras.layers.Dense(10),
+            tf.keras.layers.Dense(10, activation="softmax"),
         ]
     )
     model.compile(

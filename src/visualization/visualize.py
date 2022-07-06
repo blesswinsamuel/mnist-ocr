@@ -56,5 +56,6 @@ with col1:
                 st.bar_chart(
                     pd.DataFrame({"index": range(0, 10), "predictions": predictions}).set_index(
                         "index"
-                    )
+                    ),
+                    height=200,
                 )
