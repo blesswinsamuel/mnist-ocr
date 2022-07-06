@@ -2,18 +2,20 @@
 
 Recognize handwritten digits
 
+![Screenshot](screenshot.png)
+
 ## Tools Used
 
-This project is to demonstrate the use of various tools:
+This project demonstrates the use of various MLOps tools and techniques:
 
 - [cookiecutter data science project template](https://drivendata.github.io/cookiecutter-data-science/)
 - Tensorflow
 - GitHub Actions
-- DVC for tracking large data and pipelines
+- DVC
+- CML
+- Streamlit for Web UI
 <!-- - DagsHub -->
 <!-- - MLFlow for tracking model parameters, metrics and model registry -->
-- CML for generating reports with metrics and plots in each Git Pull Request
-- Streamlit for Web UI
 
 ## Manual deployment on Azure
 
