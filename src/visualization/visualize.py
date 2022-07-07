@@ -37,7 +37,7 @@ col1, col2 = st.columns(2)
 with col1:
     canvas_result = st_canvas(
         fill_color="rgba(255, 165, 0, 0.3)",
-        stroke_width=4,
+        stroke_width=30,
         stroke_color="black",
         background_color="#fff",
         update_streamlit=True,
